@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -11,13 +12,14 @@ public class Player : MonoBehaviour
     private Vector2 moveInput;
     private Vector2 moveVelocity;
 
-    // Start is called before the first frame update
+
+    public Text textName;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -36,5 +38,10 @@ public class Player : MonoBehaviour
         {
             SceneManager.LoadScene(1);
         }
+    }
+
+    private void Awake()
+    {
+        textName.text += DataHolder.name;
     }
 }
