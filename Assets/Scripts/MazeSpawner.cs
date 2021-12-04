@@ -5,7 +5,6 @@ using UnityEngine;
 public class MazeSpawner : MonoBehaviour
 {
     public GameObject CellPrefab;
-    // Start is called before the first frame update
     void Start()
     {
         MazeGenerator generator = new MazeGenerator();
@@ -21,11 +20,5 @@ public class MazeSpawner : MonoBehaviour
                 c.BottomWall.SetActive(maze[x, y].WallBottom);
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
